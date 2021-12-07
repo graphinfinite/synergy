@@ -1,4 +1,4 @@
-# synergy-client
+# my-app
 
 ## Project setup
 ```
