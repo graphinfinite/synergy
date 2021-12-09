@@ -3,8 +3,6 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 
 
-import gql from 'graphql-tag'
-
 Vue.config.productionTip = false
 
 import { ApolloClient } from 'apollo-client'
@@ -24,12 +22,14 @@ const cache = new InMemoryCache()
 // Create the apollo client
 const apolloClient = new ApolloClient({
 link: httpLink,
-cache,
+cache
 })
 
 const apolloProvider = new VueApollo({
 defaultClient: apolloClient,
 })
+
+Vue.use(VueApollo)
 
 new Vue({
   apolloProvider,
@@ -37,9 +37,7 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-Vue.use(VueApollo)
 
-console.log("Я здесь!!!!!!!!!!!!!!!")
-console.log(gql`query {occupations {id, name, companyName, positionName}}`)
+
 
 

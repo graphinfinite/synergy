@@ -12,7 +12,7 @@ import Employees from './components/Employees';
 export default {
   name: 'App',
   components: {
-    Employees,
+    Employees
   },
 
   data: () => ({

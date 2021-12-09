@@ -18,17 +18,18 @@
       :items="occupations"
       :search="search"
     ></v-data-table>
-    AAAA<div v-for="occupation in occupations" :key="occupation.id">qweqwe{{occupation.name}}</div>VVV
+    AAA<div v-for="occupation in occupations" :key="occupation.id">{{occupation.name}}</div>VVV
     
 
   </v-card>
 </template>
 
 <script>
-    import gql from 'graphql-tag'
+    import { GET_OCCUPATIONS } from '@/graphql'
+
     export default {
         data: () => ({
-            name: "asd",
+            occupations: [],
             search: '',
             headers: [
                 {
@@ -47,7 +48,13 @@
                 { text: 'Почасовая', value: 'by_hours' },
                 { text: 'Почасовая', value: 'advance' },
             ],
-        }),
-        apollo: {occupations: gql`query {occupations {id, name, companyName, positionName}}`},
+          }),
+        
+        apollo: {
+          $loadingKey: 'loading',
+          
+          occupations:{query: GET_OCCUPATIONS}
+          }
+        
   }
 </script>
