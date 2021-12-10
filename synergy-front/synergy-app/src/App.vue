@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main  class="back-ground-total">
       <Employees/>
     </v-main>
   </v-app>
@@ -20,3 +20,12 @@ export default {
   }),
 };
 </script>
+
+
+
+
+<style scoped>
+.back-ground-total {
+  background-color:#e0ccff;
+}
+</style>
